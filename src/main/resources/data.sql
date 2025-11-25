@@ -7,10 +7,10 @@ INSERT INTO genres (genre_id, name) VALUES
 
 
 
-INSERT INTO videos (video_id, title, stream_url) VALUES
-('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Physics Basics', 'https://cdn.example.com/videos/physics-basics.mp4'),
-('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Ancient Rome Documentary', 'https://cdn.example.com/videos/rome-docu.mp4'),
-('cccccccc-cccc-cccc-cccc-cccccccccccc', 'Intro to Programming', 'https://cdn.example.com/videos/programming-intro.mp4');
+INSERT INTO videos (video_id, title, stream_url, uploader_id) VALUES
+('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Physics Basics', 'https://cdn.example.com/videos/physics-basics.mp4', '11111111-1111-1111-1111-111111111111'),
+('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Ancient Rome Documentary', 'https://cdn.example.com/videos/rome-docu.mp4', '11111111-1111-1111-1111-111111111111'),
+('cccccccc-cccc-cccc-cccc-cccccccccccc', 'Intro to Programming', 'https://cdn.example.com/videos/programming-intro.mp4', '11111111-1111-1111-1111-111111111111');
 
 
 

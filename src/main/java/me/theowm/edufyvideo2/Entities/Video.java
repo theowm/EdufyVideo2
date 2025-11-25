@@ -24,6 +24,11 @@ public class Video {
     @Column(name = "stream_url", nullable = false, length = 255)
     private String url;
 
+    //uploader
+    @Column(name = "uploader_id", columnDefinition = "char(36)", nullable = false)
+    @JdbcTypeCode(SqlTypes.CHAR)
+    private UUID uploaderId;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "video_genres", joinColumns = @JoinColumn(name = "video_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genres = new ArrayList<>();
