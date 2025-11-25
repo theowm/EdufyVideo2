@@ -50,8 +50,8 @@ public class VideoController {
     }
 
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
-    @GetMapping("/getidandgenrefromurl/{url}")
-    public ResponseEntity<Map<String, Object>> getIdAndGenreFromUrl(@PathVariable String url) {
+    @GetMapping("/getidandgenrefromurl")
+    public ResponseEntity<Map<String, Object>> getIdAndGenreFromUrl(@RequestParam String url) {
         return ResponseEntity.ok(videoService.getIdAndGenresFromUrl(url));
     }
 
