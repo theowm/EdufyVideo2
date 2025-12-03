@@ -2,6 +2,8 @@ package me.theowm.edufyvideo2.Services;
 
 import me.theowm.edufyvideo2.Entities.Video;
 import me.theowm.edufyvideo2.Repositories.VideoRepository;
+import me.theowm.edufyvideo2.dtos.UploaderDTO;
+import me.theowm.edufyvideo2.external.UploaderClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import me.theowm.edufyvideo2.Entities.Genre;
@@ -15,10 +17,12 @@ import java.util.UUID;
 public class VideoService implements VideoServiceInterface {
 
     private final VideoRepository videoRepository;
+    private final UploaderClient uploaderClient;
 
     @Autowired
-    public VideoService(VideoRepository videoRepository) {
+    public VideoService(VideoRepository videoRepository, UploaderClient uploaderClient) {
         this.videoRepository = videoRepository;
+        this.uploaderClient = uploaderClient;
     }
 
 
@@ -29,6 +33,12 @@ public class VideoService implements VideoServiceInterface {
 
     @Override
     public Video addNewVideo(Video video) {
+
+        UploaderDTO uploader = uploaderClient.getUploader(video.getUploaderId());
+        if (uploader == null) {
+            throw new RuntimeException("Uploader does not exist: " + video.getUploaderId());
+        }
+
         return videoRepository.save(video);
     }
 

@@ -48,6 +48,13 @@ public class Video {
         return title;
     }
 
+    public UUID getUploaderId() {
+        return uploaderId;
+    }
+
+    public void setUploaderId(UUID uploaderId) {
+        this.uploaderId = uploaderId;
+    }
 
     public void setTitle(String title) {
         this.title = title;
